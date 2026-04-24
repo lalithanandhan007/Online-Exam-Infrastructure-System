@@ -1,3 +1,4 @@
+<!-- Jamuna: Enhanced homepage UI -->
 <?php
 /**
  * Home Page — index.php

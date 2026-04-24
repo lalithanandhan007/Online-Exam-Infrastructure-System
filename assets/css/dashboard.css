@@ -250,3 +250,7 @@ body.dashboard-body {
   .topbar { padding: 0 1rem; }
   .exam-timer-bar { padding: 0.6rem 1rem; }
 }
+/* Jamuna: Improved UI styling */
+body {
+    transition: all 0.3s ease;
+}
