@@ -1,0 +1,252 @@
+/* ==========================================================
+   Dashboard Layout — Sidebar + Main Content
+   ========================================================== */
+
+body.dashboard-body {
+  background: #f1f0ff;
+  min-height: 100vh;
+}
+
+/* ── Layout Shell ───────────────────────────────────────── */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ────────────────────────────────────────────── */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #1e1b4b 0%, #2d2a6f 100%);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 200;
+  transition: transform 0.3s ease;
+}
+.sidebar-brand {
+  display: flex; align-items: center; gap: 10px;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.sidebar-brand .brand-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  font-size: 1rem;
+}
+.sidebar-user {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.sidebar-user .user-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  display: grid; place-items: center;
+  font-size: 1.2rem; color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.sidebar-user .user-name { font-weight: 700; color: #fff; font-size: 0.95rem; }
+.sidebar-user .user-role {
+  font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 0.07em;
+}
+.sidebar-nav { flex: 1; padding: 1rem 0.75rem; overflow-y: auto; }
+.nav-section-title {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.35); font-weight: 600;
+  padding: 0 0.75rem; margin: 1rem 0 0.4rem;
+}
+.sidebar-link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.92rem; font-weight: 500;
+  transition: all 0.25s ease;
+  margin-bottom: 2px;
+  text-decoration: none;
+}
+.sidebar-link .link-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+.sidebar-link:hover, .sidebar-link.active {
+  color: #fff;
+  background: rgba(124,58,237,0.25);
+}
+.sidebar-link:hover .link-icon,
+.sidebar-link.active .link-icon {
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+}
+.sidebar-footer {
+  padding: 1rem 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Main Content ───────────────────────────────────────── */
+.dashboard-main {
+  margin-left: 260px;
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.topbar {
+  background: #fff;
+  padding: 0 2rem;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-title { font-size: 1.15rem; font-weight: 700; color: #1e1b4b; }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  display: grid; place-items: center;
+  color: #fff; font-weight: 700; font-size: 0.95rem;
+  cursor: pointer;
+}
+.sidebar-toggle {
+  display: none; background: none; border: none; cursor: pointer; padding: 6px;
+}
+.sidebar-toggle span {
+  display: block; width: 22px; height: 2px; background: #1e1b4b; margin: 4px 0; transition: all 0.3s;
+}
+
+.dashboard-content { flex: 1; padding: 2rem; }
+
+/* ── Page Header ────────────────────────────────────────── */
+.page-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
+}
+.page-header h1 { font-size: 1.6rem; font-weight: 800; color: #1e1b4b; }
+.page-header p  { font-size: 0.92rem; color: #64748b; margin-top: 0.25rem; }
+
+/* ── Exam Card ──────────────────────────────────────────── */
+.exam-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-left: 4px solid #7c3aed;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.exam-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(124,58,237,0.15); }
+.exam-card-title { font-size: 1.1rem; font-weight: 700; color: #1e1b4b; }
+.exam-card-meta  { font-size: 0.86rem; color: #64748b; display: flex; gap: 1rem; flex-wrap: wrap; }
+.exam-card-meta span { display: flex; align-items: center; gap: 5px; }
+.exam-card-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.5rem; }
+
+.room-code-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(90deg, rgba(124,58,237,0.1), rgba(37,99,235,0.1));
+  border: 1px solid rgba(124,58,237,0.25);
+  padding: 6px 14px; border-radius: 50px;
+  font-weight: 700; font-size: 1rem; letter-spacing: 0.1em;
+  color: #6d28d9; cursor: pointer;
+}
+.room-code-chip:hover { background: rgba(124,58,237,0.2); }
+
+/* ── Question Builder ───────────────────────────────────── */
+.question-block {
+  background: #fff; border-radius: 14px;
+  padding: 1.5rem; margin-bottom: 1rem;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+  border-top: 3px solid #7c3aed;
+}
+.question-num {
+  font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+  color: #7c3aed; letter-spacing: 0.08em; margin-bottom: 0.5rem;
+}
+.option-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 0.6rem;
+}
+.option-row input[type="radio"],
+.option-row input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; accent-color: #7c3aed; }
+.correct-indicator {
+  font-size: 0.8rem; font-weight: 600; color: #059669;
+  padding: 2px 10px; background: #f0fdf4; border-radius: 50px;
+}
+
+/* ── Exam Timer ─────────────────────────────────────────── */
+.exam-timer-bar {
+  position: sticky; top: 68px; z-index: 90;
+  background: linear-gradient(90deg, #1e1b4b, #2d2a6f);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.75rem;
+}
+.timer-display {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 800; font-size: 1.3rem; letter-spacing: 0.04em;
+}
+.timer-display .timer-icon { font-size: 1.2rem; }
+.timer-warning .timer-display { color: #fca5a5; }
+
+/* ── Result Card ────────────────────────────────────────── */
+.result-hero {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  border-radius: 20px; padding: 3rem 2rem;
+  text-align: center; color: #fff; margin-bottom: 2rem;
+}
+.result-score {
+  font-size: 4rem; font-weight: 900;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1;
+}
+.result-label { font-size: 0.95rem; opacity: 0.7; margin-top: 0.4rem; }
+.result-tag {
+  display: inline-block; margin-top: 1.2rem;
+  padding: 6px 22px; border-radius: 50px;
+  font-weight: 700; font-size: 0.95rem;
+}
+.result-tag.pass { background: rgba(16,185,129,0.3); color: #6ee7b7; }
+.result-tag.fail { background: rgba(239,68,68,0.3);  color: #fca5a5; }
+
+/* ── Progress Bar ───────────────────────────────────────── */
+.progress-bar-wrap {
+  background: #e2e8f0; border-radius: 50px; height: 10px; overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%; border-radius: 50px;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  transition: width 0.5s ease;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .sidebar { transform: translateX(-260px); }
+  .sidebar.open { transform: translateX(0); }
+  .dashboard-main { margin-left: 0; }
+  .sidebar-toggle { display: block; }
+  .overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5); z-index: 150;
+  }
+  .overlay.open { display: block; }
+}
+@media (max-width: 600px) {
+  .dashboard-content { padding: 1rem; }
+  .topbar { padding: 0 1rem; }
+  .exam-timer-bar { padding: 0.6rem 1rem; }
+}
