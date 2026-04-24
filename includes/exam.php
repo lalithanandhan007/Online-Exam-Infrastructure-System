@@ -71,6 +71,7 @@ function getAttemptById(int $attemptId): array|false {
 /**
  * Start (create) a new attempt and return its id.
  */
+// Lalith: Implemented exam attempt validation and backend logic
 function startAttempt(int $roomId, int $studentId): int {
     $pdo = getDB();
     // Calculate total marks
